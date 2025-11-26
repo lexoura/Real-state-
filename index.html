@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فندق الرفاهية | Luxury Hotel</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-bg: #ffffff;
+            --secondary-bg: #f8f9fa;
+            --accent-color: #8b7355;
+            --accent-light: #a58c6d;
+            --text-color: #333333;
+            --text-secondary: #6c757d;
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(139, 115, 85, 0.2);
+            --shadow: rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cairo', 'Poppins', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            font-weight: 800;
+            color: var(--accent-color);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 0;
+            width: 70%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), transparent);
+            border-radius: 2px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--accent-color) !important;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            margin: 0 10px;
+            color: var(--text-color) !important;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: var(--accent-color) !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .btn-primary-custom {
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            border: none;
+            padding: 15px 35px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(139, 115, 85, 0.3);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            color: white;
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(139, 115, 85, 0.5);
+            color: white;
+        }
+
+        /* Booking Widget */
+        .booking-widget {
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 40px var(--shadow);
+            border: 1px solid var(--glass-border);
+            margin-top: 30px;
+        }
+
+        .booking-form .form-control {
+            border-radius: 10px;
+            padding: 12px 15px;
+            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.8);
+            margin-bottom: 15px;
+        }
+
+        /* Glass Cards */
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 12px 40px var(--shadow);
+            transition: all 0.5s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            border-color: rgba(139, 115, 85, 0.4);
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--primary-bg);
+        }
+
+        .about-content {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.9;
+        }
+
+        /* Features Section */
+        .feature-card {
+            padding: 40px 30px;
+            height: 100%;
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            color: var(--accent-color);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Rooms Section */
+        .rooms {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .room-item {
+            padding: 30px;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+
+        .room-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        .room-image {
+            height: 200px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+            font-size: 3rem;
+            transition: all 0.4s ease;
+        }
+
+        .room-item:hover .room-image {
+            transform: scale(1.05);
+        }
+
+        .price-tag {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin: 15px 0;
+        }
+
+        /* Amenities Section */
+        .amenities {
+            position: relative;
+            overflow: hidden;
+            background: var(--secondary-bg);
+        }
+
+        .amenity-item {
+            text-align: center;
+            padding: 30px 20px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .amenity-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        .amenity-text {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Restaurant Section */
+        .restaurant {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .restaurant-item {
+            padding: 30px;
+            margin-bottom: 30px;
+            height: 100%;
+            text-align: center;
+        }
+
+        .restaurant-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .restaurant-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .restaurant-item p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background-color: var(--primary-bg);
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            height: 300px;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+            font-size: 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .testimonial-item {
+            padding: 40px 30px;
+            text-align: center;
+            height: 100%;
+        }
+
+        .client-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            transition: all 0.4s ease;
+        }
+
+        .testimonial-item:hover .client-img {
+            transform: scale(1.08);
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 30px rgba(139, 115, 85, 0.2);
+        }
+
+        .testimonial-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-item p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .rating {
+            color: #ffc107;
+            margin-bottom: 15px;
+        }
+
+        /* Events Section */
+        .events {
+            background-color: var(--secondary-bg);
+        }
+
+        .event-item {
+            padding: 30px;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+
+        .event-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .event-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .event-item p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--primary-bg);
+        }
+
+        .contact-form {
+            padding: 40px;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            padding: 15px;
+            border: 1px solid var(--glass-border);
+            background: var(--card-bg);
+            margin-bottom: 20px;
+        }
+
+        .form-control:focus {
+            box-shadow: 0 0 0 0.25rem rgba(139, 115, 85, 0.25);
+            border-color: var(--accent-color);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #f8f9fa;
+            padding: 60px 0 30px;
+            border-top: 1px solid #e9ecef;
+            color: var(--text-secondary);
+        }
+
+        .footer h5 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+            padding-right: 5px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            margin-left: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-5px);
+            background: var(--accent-light);
+        }
+
+        /* Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-15px) rotate(2deg);
+            }
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .section {
+                padding: 80px 0;
+            }
+
+            .amenity-icon {
+                font-size: 2.8rem;
+            }
+
+            .contact-form {
+                padding: 30px 20px;
+            }
+            
+            .booking-widget {
+                margin-top: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">فندق الرفاهية</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">عن الفندق</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#rooms">الغرف</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#restaurant">المطعم</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#events">الفعاليات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">اتصل بنا</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content animate-on-scroll">
+                        <h1 class="animate__animated animate__fadeInDown">فندق الرفاهية</h1>
+                        <p class="animate__animated animate__fadeInUp">
+                            استمتع بتجربة فاخرة في فندقنا الذي يجمع بين الأناقة والراحة. موقع استثنائي، خدمة متميزة، وذكريات لا تنسى تنتظرك.
+                        </p>
+                        <a href="#rooms" class="btn-primary-custom animate__animated animate__fadeInUp">احجز الآن</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="booking-widget animate-on-scroll">
+                        <h3 class="mb-4 text-center">احجز إقامتك</h3>
+                        <form class="booking-form">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="تاريخ الوصول">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="تاريخ المغادرة">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <select class="form-control">
+                                        <option>الكبار</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4+</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <select class="form-control">
+                                        <option>الأطفال</option>
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3+</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <select class="form-control">
+                                <option>نوع الغرفة</option>
+                                <option>غرفة ديلوكس</option>
+                                <option>جناح فاخر</option>
+                                <option>جناح رئاسي</option>
+                            </select>
+                            <button type="submit" class="btn-primary-custom w-100">تحقق من التوافر</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">عن الفندق</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="glass-card p-5 about-content animate-on-scroll">
+                        <p>
+                            يقع فندق الرفاهية في قلب المدينة، ويوفر تجربة إقامة فاخرة تجمع بين التصميم المعماري الحديث واللمسات الكلاسيكية الأنيقة. يتميز الفندق بموقعه المميز القريب من أهم المعالم السياحية والتجارية.
+                        </p>
+                        <p>
+                            نقدم لضيوفنا الكرام مجموعة متنوعة من الخدمات والمرافق المصممة خصيصًا لتلبية جميع احتياجاتهم، مع فريق عمل محترف ومتفانٍ يحرص على تقديم أفضل خدمة ممكنة.
+                        </p>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><i class="bi bi-check-circle-fill text-accent me-2"></i> خدمة الغرف على مدار 24 ساعة</li>
+                                    <li><i class="bi bi-check-circle-fill text-accent me-2"></i> موقف سيارات مجاني</li>
+                                    <li><i class="bi bi-check-circle-fill text-accent me-2"></i> إنترنت عالي السرعة</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><i class="bi bi-check-circle-fill text-accent me-2"></i> مركز لياقة بدنية</li>
+                                    <li><i class="bi bi-check-circle-fill text-accent me-2"></i> مسبح داخلي وخارجي</li>
+                                    <li><i class="bi bi-check-circle-fill text-accent me-2"></i> سبا وخدمات تدليك</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="glass-card p-0 overflow-hidden animate-on-scroll" style="height: 500px;">
+                        <div class="room-image h-100">
+                            <i class="bi bi-building"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">مميزاتنا</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="glass-card feature-card animate-on-scroll floating">
+                        <div class="feature-icon">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <h3>موقع مميز</h3>
+                        <p>
+                            موقع استراتيجي في قلب المدينة، بالقرب من أهم المعالم السياحية والتجارية ووسائل النقل.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="glass-card feature-card animate-on-scroll floating" style="animation-delay: 0.2s;">
+                        <div class="feature-icon">
+                            <i class="bi bi-star"></i>
+                        </div>
+                        <h3>خدمة فاخرة</h3>
+                        <p>
+                            فريق عمل محترف يقدم خدمة متميزة ويراعي أدق التفاصيل لضمان راحة ضيوفنا.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="glass-card feature-card animate-on-scroll floating" style="animation-delay: 0.4s;">
+                        <div class="feature-icon">
+                            <i class="bi bi-umbrella"></i>
+                        </div>
+                        <h3>مرافق متكاملة</h3>
+                        <p>
+                            نوفر مجموعة متنوعة من المرافق والخدمات التي تلبي جميع احتياجات ضيوفنا خلال إقامتهم.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section id="rooms" class="section rooms">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">غرفنا الفاخرة</h2>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="glass-card room-item animate-on-scroll">
+                        <div class="room-image">
+                            <i class="bi bi-bed"></i>
+                        </div>
+                        <h3>غرفة ديلوكس</h3>
+                        <p>
+                            غرفة فسيحة بتصميم أنيق، مزودة بجميع وسائل الراحة وتطل على مناظر خلابة للمدينة.
+                        </p>
+                        <div class="price-tag">$150/ليلة</div>
+                        <div class="d-flex justify-content-between">
+                            <span><i class="bi bi-person me-1"></i> 2 بالغين</span>
+                            <span><i class="bi bi-rulers me-1"></i> 35 م²</span>
+                        </div>
+                        <a href="#booking" class="btn-primary-custom w-100 mt-3">احجز الآن</a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="glass-card room-item animate-on-scroll">
+                        <div class="room-image">
+                            <i class="bi bi-building"></i>
+                        </div>
+                        <h3>جناح فاخر</h3>
+                        <p>
+                            جناح فاخر بمساحة كبيرة، غرفة معيشة منفصلة، وحمام سبا فاخر مع إطلالة بانورامية.
+                        </p>
+                        <div class="price-tag">$280/ليلة</div>
+                        <div class="d-flex justify-content-between">
+                            <span><i class="bi bi-person me-1"></i> 3 بالغين</span>
+                            <span><i class="bi bi-rulers me-1"></i> 60 م²</span>
+                        </div>
+                        <a href="#booking" class="btn-primary-custom w-100 mt-3">احجز الآن</a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="glass-card room-item animate-on-scroll">
+                        <div class="room-image">
+                            <i class="bi bi-house-door"></i>
+                        </div>
+                        <h3>جناح رئاسي</h3>
+                        <p>
+                            تجربة الإقامة الأكثر فخامة مع جناح رئاسي فاخر، غرف نوم متعددة، وخدمة بتلر شخصي.
+                        </p>
+                        <div class="price-tag">$500/ليلة</div>
+                        <div class="d-flex justify-content-between">
+                            <span><i class="bi bi-person me-1"></i> 4 بالغين</span>
+                            <span><i class="bi bi-rulers me-1"></i> 120 م²</span>
+                        </div>
+                        <a href="#booking" class="btn-primary-custom w-100 mt-3">احجز الآن</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities Section -->
+    <section id="amenities" class="section amenities">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">مرافقنا</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="amenity-item animate-on-scroll">
+                        <div class="amenity-icon">
+                            <i class="bi bi-water"></i>
+                        </div>
+                        <div class="amenity-text">
+                            مسبح داخلي وخارجي
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="amenity-item animate-on-scroll">
+                        <div class="amenity-icon">
+                            <i class="bi bi-egg-fried"></i>
+                        </div>
+                        <div class="amenity-text">
+                            مطاعم فاخرة
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="amenity-item animate-on-scroll">
+                        <div class="amenity-icon">
+                            <i class="bi bi-heart-pulse"></i>
+                        </div>
+                        <div class="amenity-text">
+                            نادي صحي وسبا
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="amenity-item animate-on-scroll">
+                        <div class="amenity-icon">
+                            <i class="bi bi-wifi"></i>
+                        </div>
+                        <div class="amenity-text">
+                            إنترنت عالي السرعة
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Restaurant Section -->
+    <section id="restaurant" class="section restaurant">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">مطعم الفندق</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="glass-card restaurant-item animate-on-scroll">
+                        <div class="restaurant-icon">
+                            <i class="bi bi-cup-straw"></i>
+                        </div>
+                        <h3>مطعم الشرق الأوسط</h3>
+                        <p>
+                            تجربة طعام شرق أوسطية أصيلة في أجواء راقية، مع تشكيلة واسعة من الأطباق التقليدية والعصرية.
+                        </p>
+                        <div class="mt-3">
+                            <span class="badge bg-light text-dark me-2">وجبات عربية</span>
+                            <span class="badge bg-light text-dark">مشاوي</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="glass-card restaurant-item animate-on-scroll">
+                        <div class="restaurant-icon">
+                            <i class="bi bi-egg"></i>
+                        </div>
+                        <h3>مطعم عالمي</h3>
+                        <p>
+                            استمتع بمأكولات عالمية متنوعة من أفضل المطابخ العالمية، بإشراف طهاة محترفين.
+                        </p>
+                        <div class="mt-3">
+                            <span class="badge bg-light text-dark me-2">مأكولات بحرية</span>
+                            <span class="badge bg-light text-dark">مشاوي</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="glass-card restaurant-item animate-on-scroll">
+                        <div class="restaurant-icon">
+                            <i class="bi bi-cake2"></i>
+                        </div>
+                        <h3>مقهى وحلويات</h3>
+                        <p>
+                            مكان مثالي للاسترخاء مع تشكيلة مميزة من المشروبات والحلويات الطازجة المحضرة يوميًا.
+                        </p>
+                        <div class="mt-3">
+                            <span class="badge bg-light text-dark me-2">حلويات</span>
+                            <span class="badge bg-light text-dark">مشروبات</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="section events">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">الفعاليات والمناسبات</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="glass-card event-item animate-on-scroll">
+                        <div class="event-icon">
+                            <i class="bi bi-heart"></i>
+                        </div>
+                        <h3>حفلات الزفاف</h3>
+                        <p>
+                            نحول أحلامك إلى واقع مع حفلات زفاف فاخرة في قاعاتنا المزينة بأناقة، مع خدمات متكاملة.
+                        </p>
+                        <a href="#" class="btn btn-outline-accent mt-3">اعرف المزيد</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="glass-card event-item animate-on-scroll">
+                        <div class="event-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h3>المؤتمرات والاجتماعات</h3>
+                        <p>
+                            قاعات مجهزة بأحدث التقنيات لتنظيم المؤتمرات والاجتماعات والندوات باحترافية عالية.
+                        </p>
+                        <a href="#" class="btn btn-outline-accent mt-3">اعرف المزيد</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="glass-card event-item animate-on-scroll">
+                        <div class="event-icon">
+                            <i class="bi bi-gift"></i>
+                        </div>
+                        <h3>مناسبات خاصة</h3>
+                        <p>
+                            احتفل بمناسباتك الخاصة في أجواء راقية مع خدمات مخصصة تلبي جميع توقعاتك وتفضيلاتك.
+                        </p>
+                        <a href="#" class="btn btn-outline-accent mt-3">اعرف المزيد</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section testimonials">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">آراء ضيوفنا</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="glass-card testimonial-item animate-on-scroll">
+                        <div class="client-img">
+                            <i class="bi bi-person-circle"></i>
+                        </div>
+                        <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <h3>أحمد محمد</h3>
+                        <p>
+                            "تجربة رائعة، الغرف نظيفة ومريحة، والخدمة ممتازة. سأعود بالتأكيد في المرة القادمة."
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="glass-card testimonial-item animate-on-scroll">
+                        <div class="client-img">
+                            <i class="bi bi-person-circle"></i>
+                        </div>
+                        <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                        </div>
+                        <h3>فاطمة علي</h3>
+                        <p>
+                            "الموقع ممتاز والموظفون محترفون. الإفطار كان لذيذًا والغرف مريحة جدًا."
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="glass-card testimonial-item animate-on-scroll">
+                        <div class="client-img">
+                            <i class="bi bi-person-circle"></i>
+                        </div>
+                        <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <h3>خالد إبراهيم</h3>
+                        <p>
+                            "أفضل فندق في المدينة. المرافق ممتازة والخدمة لا تقارن. أنصح به بشدة."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">اتصل بنا</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="glass-card contact-form animate-on-scroll">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <input type="text" class="form-control" placeholder="الاسم الكامل">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <input type="email" class="form-control" placeholder="البريد الإلكتروني">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="الموضوع">
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" rows="5" placeholder="الرسالة"></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary-custom w-100">إرسال الرسالة</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>فندق الرفاهية</h5>
+                    <p class="mt-3">نقدم لكم تجربة إقامة فاخرة تجمع بين الأناقة والراحة في قلب المدينة.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 mb-4">
+                    <h5>روابط سريعة</h5>
+                    <ul class="footer-links list-unstyled mt-3">
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#about">عن الفندق</a></li>
+                        <li><a href="#rooms">الغرف</a></li>
+                        <li><a href="#restaurant">المطعم</a></li>
+                        <li><a href="#events">الفعاليات</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h5>اتصل بنا</h5>
+                    <ul class="footer-links list-unstyled mt-3">
+                        <li><i class="bi bi-geo-alt me-2"></i> شارع المدينة، الرياض، المملكة العربية السعودية</li>
+                        <li><i class="bi bi-telephone me-2"></i> +966 12 345 6789</li>
+                        <li><i class="bi bi-envelope me-2"></i> info@luxuryhotel.com</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h5>النشرة البريدية</h5>
+                    <p class="mt-3">اشترك في نشرتنا البريدية لتصلك آخر العروض والأخبار.</p>
+                    <div class="input-group mt-3">
+                        <input type="email" class="form-control" placeholder="بريدك الإلكتروني">
+                        <button class="btn btn-accent" type="button">اشتراك</button>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">© 2023 جميع الحقوق محفوظة | فندق الرفاهية</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">تصميم وتطوير <a href="#" class="text-decoration-none">فريق الرفاهية</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    document.querySelector('.navbar').style.padding = '10px 0';
+                    document.querySelector('.navbar').style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+                } else {
+                    document.querySelector('.navbar').style.padding = '15px 0';
+                    document.querySelector('.navbar').style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
